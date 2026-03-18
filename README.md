@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Coding Challenge – Live Scores Simulation
 
-## Getting Started
+## 💡 Introduction
+This project is a **Live Scores Simulation** web application that displays football match data in real time. The app simulates integration with a third-party provider and allows users to filter matches by status and view detailed match information such as scores, teams, league, and country.  
 
-First, run the development server:
+The live demo of the website is available here: [https://live-score-app-h76q.vercel.app/](https://live-score-app-h76q.vercel.app/)  
 
-```bash
+---
+
+## 📦 Technologies Used
+- **Next.js** – React framework for modern web applications  
+- **TypeScript** – Strong typing for safer code  
+- **React.js** – Main library for building UI  
+- **Styled Components** – Component-based styling  
+- **date-fns** – Date formatting  
+
+---
+
+## 🗂 Project Structure
+
+\`\`\`
+/components
+  ├── container.tsx
+  ├── filters.tsx
+  └── match-card.tsx
+/data
+  └── sports.json
+/pages
+  └── index.tsx
+/types
+  └── match.ts
+/styles
+  └── global.ts
+\`\`\`
+
+---
+
+## 📄 Features
+
+### 1. Match Display
+- Each match is displayed in a **card** showing:
+  - Country
+  - League/competition
+  - Status (LIVE, RESULT, UPCOMING, CANCELED)
+  - Current score
+  - Team names
+  - Visual progress indicator (circular progress)
+
+### 2. Match Status
+- **LIVE** – `status.type === inprogress`  
+- **RESULT** – `status.type === finished`  
+- **UPCOMING** – `status.type === notstarted`  
+- **CANCELED** – `status.type === canceled`  
+
+### 3. Filters
+- **ALL** – Shows all matches  
+- **LIVE** – Only matches in progress  
+- **RESULT** – Only finished matches  
+- **UPCOMING** – Only upcoming matches  
+- Each filter shows a **count of matches**  
+
+---
+
+## 🎨 Design
+- Font used: [Barlow](https://fonts.google.com/specimen/Barlow)  
+- Fully responsive layout  
+- Match progress indicator:
+  - Fulltime (100% filled)
+  - Halftime (50% filled)
+  - Upcoming or canceled matches (0%)
+
+---
+
+## ⚙️ Installation and Usage
+
+### Prerequisites
+- Node.js >= 18  
+- npm or yarn  
+
+### Installation
+\`\`\`bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+# or
+yarn install
+\`\`\`
+
+### Running the Project
+\`\`\`bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
+Open in browser: \`http://localhost:3000\`  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or access the live demo here: [https://live-score-app-h76q.vercel.app/](https://live-score-app-h76q.vercel.app/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Testing
+- You can add tests using **Jest** or **React Testing Library**.  
+- Example: verifying that filters correctly display matches by status.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Data
+- Match data is simulated via \`sports.json\`.  
+- JSON structure is based on the provided sample feed:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+\`\`\`json
+{
+  "id": "hbaffaf",
+  "name": "FK Tyumen - Luch-Energiya Vladivostok",
+  "competitionId": "bbbg",
+  "competition": "Football National League",
+  "countryId": "cb",
+  "country": "Russia",
+  "timestamp": 1470484800,
+  "status": { "type": "finished" },
+  "homeTeam": { "id": 75207, "name": "FK Tyumen" },
+  "awayTeam": { "id": 5852, "name": "Luch-Energiya Vladivostok" },
+  "homeScore": { "current": 0 },
+  "awayScore": { "current": 0 },
+  "liveStatus": "FT"
+}
+\`\`\`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✅ Evaluation Criteria
+- Code quality and readability  
+- Responsive and consistent design  
+- Correct functionality of filters and match display  
+- Reusable component implementation  
+- Type safety using TypeScript  

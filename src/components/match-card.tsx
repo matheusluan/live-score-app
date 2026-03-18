@@ -140,7 +140,8 @@ export default function MatchCard({ match }: Props) {
     const getProgress = () => {
         if (match.status.type == MatchStatus.Finished) {
             return 100
-        } else if (match.status.type !== MatchStatus.InProgress) return 0
+        } else if (match.liveStatus == 'HT') { return 50 }
+        else if (match.status.type !== MatchStatus.InProgress) return 0
 
         const minute = Number(match.liveStatus) || 0
         return Math.min((minute / 90) * 100, 100)
