@@ -6,12 +6,12 @@ type Props = {
 }
 
 const StyledContainer = styled.div`
-  max-width: 1024px;
+  max-width: 728px;
   margin: 0 auto;
   padding: 32px 16px;
 
   @media (min-width: 640px) {
-    padding: 0 24px;
+    padding: 32px 24px;
   }
 `
 

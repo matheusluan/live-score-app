@@ -2,6 +2,7 @@ export enum MatchStatus {
     InProgress = "inprogress",
     NotStarted = "notstarted",
     Finished = "finished",
+    Canceled = "canceled",
 }
 
 export interface Match {

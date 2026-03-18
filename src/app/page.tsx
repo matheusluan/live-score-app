@@ -3,9 +3,9 @@
 import { useState } from "react"
 import data from "@/data/sports.json"
 import Filters from "@/components/filters"
-import MatchList from "@/components/match-list"
 import { Match, MatchStatus } from "@/types/match"
 import Container from "@/components/container"
+import MatchCard from "@/components/match-card"
 
 export default function Home() {
 
@@ -39,7 +39,9 @@ export default function Home() {
           counts={counts}
         />
 
-        <MatchList matches={filtered} />
+        {filtered.map((match) => (
+          <MatchCard key={match.id} match={match} />
+        ))}
       </Container>
     </main>
   )
