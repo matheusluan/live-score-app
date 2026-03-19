@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import { MatchStatus } from "@/types/match"
+import { Match, MatchStatus } from "@/types/match"
 import { format } from "date-fns"
 
 type Props = {
-    match: any
+    match: Match
 }
 
 const Card = styled.div`
@@ -67,14 +67,14 @@ const CircleWrapper = styled.div`
   height: 42px;
 `
 
-const CircleProgress = styled.div<{ progress: number; $active?: boolean }>`
+const CircleProgress = styled.div<{ $progress: number; $active?: boolean }>`
   width: 100%;
   height: 100%;
   border-radius: 50%;
 
-  background: ${({ progress, $active }) =>
+  background: ${({ $progress, $active }) =>
         $active
-            ? `conic-gradient(#4caf50 ${progress}%, #444 ${progress}%)`
+            ? `conic-gradient(#4caf50 ${$progress}%, #444 ${$progress}%)`
             : "#444"};
 `
 
@@ -171,7 +171,7 @@ export default function MatchCard({ match }: Props) {
                 <CircleWrapper>
                     <CircleProgress
                         $active={match.status.type === MatchStatus.InProgress || match.status.type === MatchStatus.Finished}
-                        progress={getProgress()}
+                        $progress={getProgress()}
                     />
                     <CircleInner type={match.status.type}>{getMinute()}</CircleInner>
                 </CircleWrapper>
