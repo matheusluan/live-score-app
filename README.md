@@ -98,39 +98,4 @@ Or access the live demo here: [https://live-score-app-h76q.vercel.app/](https://
 
 ---
 
-## 🧪 Testing
-- You can add tests using **Jest** or **React Testing Library**.  
-- Example: verifying that filters correctly display matches by status.
 
----
-
-## 📂 Data
-- Match data is simulated via \`sports.json\`.  
-- JSON structure is based on the provided sample feed:
-
-\`\`\`json
-{
-  "id": "hbaffaf",
-  "name": "FK Tyumen - Luch-Energiya Vladivostok",
-  "competitionId": "bbbg",
-  "competition": "Football National League",
-  "countryId": "cb",
-  "country": "Russia",
-  "timestamp": 1470484800,
-  "status": { "type": "finished" },
-  "homeTeam": { "id": 75207, "name": "FK Tyumen" },
-  "awayTeam": { "id": 5852, "name": "Luch-Energiya Vladivostok" },
-  "homeScore": { "current": 0 },
-  "awayScore": { "current": 0 },
-  "liveStatus": "FT"
-}
-\`\`\`
-
----
-
-## ✅ Evaluation Criteria
-- Code quality and readability  
-- Responsive and consistent design  
-- Correct functionality of filters and match display  
-- Reusable component implementation  
-- Type safety using TypeScript  
